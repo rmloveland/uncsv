@@ -1,0 +1,29 @@
+uncsv - convert CSV into a delimited format understood by UNIX tools (awk, etc.)
+
+INTRODUCTION
+
+Inspired by this comp.lang.awk post by Barry Fishman <barry@ecubist.org>:
+
+    The traditional Unix way is probably to write a separate program
+    uncsv to convert CVS files to simple delimited files that allow
+    its default output delimiter to be changed with a -d option,
+    rather than adding more complexity to awk.  If need be, there
+    would also be a csv program to convert simple delimited files to
+    CSV.
+
+    The uncvs could emit warning (and have a test mode) to show if the
+    selected delimiter can be used.  The default delimiter could be
+    something innocuous like '|' or ISO/IEC 2022 (and Unicode)
+    standard unit separator (US) code 31 (control-_).
+
+USAGE
+
+$ uncsv -d':' some-file.csv
+# ... prints file using ':' as delimiter
+
+$ cat some-file.csv | uncsv -d':' -
+#  ... same as above, but using '-' to read from STDIN
+
+RELATED WORK
+
+https://github.com/tamentis/uncsv
